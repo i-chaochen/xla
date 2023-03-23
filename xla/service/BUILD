@@ -6966,7 +6966,13 @@ xla_cc_binary(
         "//xla/service/gpu:executable_proto_cc",
         "//xla/service/gpu:gpu_compiler",
         "//xla/service/gpu:nvptx_compiler_impl",
-    ]) + if_cuda(["//xla/stream_executor/cuda:cublas_plugin"]),
+    ]) 
+    + if_rocm_is_configured([
+        "//xla/service/gpu:executable_proto_cc",
+        "//xla/service/gpu:gpu_compiler",
+        "//xla/service/gpu:amdgpu_compiler_impl",
+    ])
+    + if_cuda(["//xla/stream_executor/cuda:cublas_plugin"]),
 )
 
 # A simple test of xla_aot_compile which generates an output file from an mhlo file.
