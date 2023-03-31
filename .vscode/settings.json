@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.inc": "cpp",
+        "fstream": "cpp",
+        "array": "cpp"
+    }
+}
